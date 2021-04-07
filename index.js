@@ -34,10 +34,7 @@ var randomNumber2 = rollDice();
 var diceImg = ["images/dice1.png", "images/dice2.png", "images/dice3.png",
   "images/dice4.png", "images/dice5.png", "images/dice6.png"];
 var winner = document.querySelector("h1");
-// how to get the attribute src of the tag img:
-// document.querySelector("img").getAttribute("src");
-// in order to change the value of the attribute:
-// document.querySelector("img").setAttribute("src", "<here comes the new value>");
+
 
 for (var i = 0; i < diceImg.length; i++) {
 
