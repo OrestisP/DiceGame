@@ -1,3 +1,27 @@
+var state = history.state || {};
+
+var reloadCount = state.reloadCount || 0;
+
+if (performance.navigation.type === 1) { // Reload
+
+  state.reloadCount = ++reloadCount;
+
+  history.replaceState(state, null, document.URL);
+
+} else if (reloadCount) {
+
+  delete state.reloadCount;
+
+  reloadCount = 0;
+
+  history.replaceState(state, null, document.URL);
+
+}
+
+if (reloadCount > 0) {
+
+  // code above delays js execution until user refresehs page for the first time
+
 function rollDice(){
 
   var dice = Math.random() * 6 + 1; // or: Math.floor(Math.random()*6+1);
@@ -32,4 +56,6 @@ if (randomNumber1 > randomNumber2) {
   winner.textContent = "🤩 Player 2 Wins!";
 } else {
   winner.textContent = "Draw 🤮";
+}
+
 }
